@@ -1,0 +1,14 @@
+{
+    "name": "Template",
+    "description": "This is a \\compose\\ template package.",
+    "dependencies": {
+        "system-packages": [],
+        "packages": []
+    },
+    "compatibility": {
+        "compose": {
+            "minimum": "v1.0.0",
+            "maximum": "v2.0.0"
+        }
+    }
+}
