@@ -1,6 +1,6 @@
 {
     "name": "Duckietown - Storage",
-    "description": "Provides tools and pages for managing the Duckietown Cloud Storage Service",
+    "description": "Provides tools and pages for managing the Duckietown Cloud Storage Service (DCSS).",
     "core": {
         "namespace": "duckietown_storage",
         "file": "DuckietownStorage.php",
