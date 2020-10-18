@@ -1,0 +1,20 @@
+{
+    "name" : "Cloud Storage",
+    "package" : "duckietown_storage",
+    "menu_entry" : {
+        "order" : 0,
+        "icon" : {
+            "class" : "glyphicon",
+            "name" : "hdd"
+        },
+        "responsive" : {
+            "priority" : 35
+        },
+        "exclude_roles" : []
+    },
+    "child_pages" : [],
+    "access_level" : [
+        "administrator",
+        "duckietown:user"
+    ]
+}

@@ -1,9 +1,16 @@
 {
-    "name": "Template",
-    "description": "This is a \\compose\\ template package.",
+    "name": "Duckietown - Storage",
+    "description": "Provides tools and pages for managing the Duckietown Cloud Storage Service",
+    "core": {
+        "namespace": "duckietown_storage",
+        "file": "DuckietownStorage.php",
+        "class": "DuckietownStorage"
+    },
     "dependencies": {
         "system-packages": [],
-        "packages": []
+        "packages": [
+            "duckietown"
+        ]
     },
     "compatibility": {
         "compose": {

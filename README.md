@@ -1,4 +1,3 @@
-# template-compose-pkg
+# \\compose\\ package: Duckietown Storage
 
-This is a template to help you create new \\compose\\
-packages.
+\\compose\\ package for managing the Duckietown Cloud Storage Service (DCSS).
