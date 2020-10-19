@@ -17,6 +17,7 @@ use system\classes\Utils;
 class DuckietownStorage {
     
     private static $initialized = false;
+    private static $pkg_id = 'duckietown_storage';
     
     const STORAGE_BUCKETS = [
         'duckietown-public-storage',
@@ -219,7 +220,7 @@ class DuckietownStorage {
         };
         // get storage permissions for given bucket on all identities
         foreach ($identities as $db_name => $db_identities) {
-            $db = new Database('duckietown', $db_name);
+            $db = new Database(self::$pkg_id, $db_name);
             foreach ($db_identities as $identity) {
                 $key = sprintf('%s__%s__%s', $identity, $bucket, $action);
                 if ($db->key_exists($key)) {
@@ -303,7 +304,7 @@ class DuckietownStorage {
         // compile key pattern
         $key_pattern = "/^($k_id)__($k_bucket)__($k_action)$/";
         // get storage permissions for given bucket on all identities
-        $db = new Database('duckietown', $db_name, $key_pattern);
+        $db = new Database(self::$pkg_id, $db_name, $key_pattern);
         $keys = $db->list_keys();
         // read everything
         $objects = [];
@@ -343,7 +344,7 @@ class DuckietownStorage {
     
     
     private static function grantStorageSpacePermission($entity, $id, $bucket, $object, $action){
-        $db = new Database('duckietown', "{$entity}_storage_permission");
+        $db = new Database(self::$pkg_id, "{$entity}_storage_permission");
         $key = sprintf('%s__%s__%s', $id, $bucket, $action);
         // create default entry payload (will be overwritten if the record already exists)
         $data = [
@@ -373,7 +374,7 @@ class DuckietownStorage {
     
     
     private static function revokeStorageSpacePermission($db_name, $id, $bucket, $object, $action){
-        $db = new Database('duckietown', $db_name);
+        $db = new Database(self::$pkg_id, $db_name);
         $key = sprintf('%s__%s__%s', $id, $bucket, $action);
         // nothing to do if the permission is not granted
         if (!$db->key_exists($key)) {
